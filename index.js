@@ -6,7 +6,7 @@ const app = express();
 
 // REST
 app.get('/saludo', (req, res) => {
-    res.json({ mensaje: "Hola desde REST 🚀" });
+    res.json({ mensaje: "Hola Este es un ejemplo para la clase de Minero" });
 });
 
 // SOAP service definition
