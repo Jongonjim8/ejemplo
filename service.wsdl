@@ -41,7 +41,7 @@
 
   <service name="SaludoService">
     <port name="SaludoPort" binding="tns:SaludoBinding">
-      <soap:address location="http://localhost:3000/wsdl"/>
+      <soap:address location="https://ejemplo-tk9x.onrender.com/wsdl"/>
     </port>
   </service>
 
