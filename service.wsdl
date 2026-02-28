@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="SaludoService"
+  targetNamespace="http://example.com/saludo.wsdl"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:tns="http://example.com/saludo.wsdl"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <message name="saludarRequest">
+    <part name="nombre" type="xsd:string"/>
+  </message>
+
+  <message name="saludarResponse">
+    <part name="respuesta" type="xsd:string"/>
+  </message>
+
+  <portType name="SaludoPortType">
+    <operation name="saludar">
+      <input message="tns:saludarRequest"/>
+      <output message="tns:saludarResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="SaludoBinding" type="tns:SaludoPortType">
+    <soap:binding style="rpc"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="saludar">
+      <soap:operation soapAction="saludar"/>
+      <input>
+        <soap:body use="encoded"
+          namespace="urn:saludo"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded"
+          namespace="urn:saludo"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="SaludoService">
+    <port name="SaludoPort" binding="tns:SaludoBinding">
+      <soap:address location="http://localhost:3000/wsdl"/>
+    </port>
+  </service>
+
+</definitions>
