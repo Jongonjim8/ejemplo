@@ -4,9 +4,12 @@ const app = express();
 app.use(express.json());
 
 app.get('/saludo', (req, res) => {
-    res.json({ mensaje: "Hola desde mi servicio REST en VS Code" });
+    res.json({ mensaje: "Hola desde mi servicio REST en Render 🚀" });
 });
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo en http://localhost:3000");
+
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
 });
